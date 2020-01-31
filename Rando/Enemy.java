@@ -4,6 +4,7 @@ public class Enemy {
   private int maxHealth;
   private int health;
   private int maxDamage;
+  private int minDamage = 1;
 
   public Enemy(String enemyName) {
     this.enemyName = enemyName;
@@ -47,7 +48,46 @@ public class Enemy {
     this.enemyName = enemyName;
   }
   public int calculateDamage() {
-    int range = 10;
-    (int) (Math.random() * damageRange) + 1;
+    int damageRange = maxDamage-minDamage+1;
+    int damage = (int) (Math.random() * damageRange) + 1;
+
+    if (maxDamage == 5) {
+      if (Math.random() > 0.10) {
+        return damage;
+      }
+      else {
+        return 0;
+      }
+    }
+    else if (maxDamage == 1) {
+      if (Math.random() > 0.70) {
+        return damage;
+      }
+      else {
+        return 0;
+      }
+    }
+    else if (maxDamage == 2) {
+      if (Math.random() > 0.50) {
+        return damage;
+      }
+      else {
+        return 0;
+      }
+    }
+    else if (maxDamage == 3) {
+      if (Math.random() > 0.25) {
+        return damage;
+      }
+      else {
+        return 0;
+      }
+    }
+
+    else {
+      return 0;
+    }
+
+
   }
 }

@@ -2,9 +2,14 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Game {
+
+  static Human[] players = new Human[2];
+
   public static void main(String args[]) {
     System.out.println("\nWelcome to human game!");
     createCharacter();
+    makeEnemies();
+    userInterface();
   }
 
   private static void createCharacter() {
@@ -50,11 +55,21 @@ public class Game {
       line = "Water";
     }
     Human player = new Human(playerName, subclass, line);
+    players[0] = player;
   }
 
-    public static void welcome() {
-      System.out.println("\nWelcome to human game!");
-    }
+  public static void userInterface() {
+    System.out.print("\n\n\n\n");
+    showInfo();
+  }
+
+  public static void showInfo() {
+    System.out.println("\nName: "+ players[0].getName());
+    System.out.println("Health: "+ players[0].getHealth());
+    System.out.println("Subclass: "+ players[0].getSubclass());
+    System.out.println("Line: "+ players[0].getLine());
+    System.out.println("Location: "+ players[0].getLocation());
+  }
 
     public static void makeEnemies() {
       Enemy Weewoo = new Enemy("Weewoo");
